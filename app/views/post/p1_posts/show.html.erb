@@ -1,0 +1,57 @@
+<%- model_class = Post::P1Post -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @post_p1_post.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:title) %>:</strong></dt>
+  <dd><%= @post_p1_post.title %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:content) %>:</strong></dt>
+  <dd><%= @post_p1_post.content %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              post_p1_posts_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_post_p1_post_path(@post_p1_post), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              post_p1_post_path(@post_p1_post),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
+
+<h5><%= pluralize(@post_p1_post.p1_comments.size, "comment") %></h5>
+<div id="comments">
+  <%= render @@post_p1_post.p1_comments %>
+  <%= render "a1_comments/form" %>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>No</th>
+      <th>제목</th>
+      <th>작성자</th>
+      <th>작성일</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @post_p1_posts.each do |article| %>
+      <tr>
+        <td><%= article.id %></td>
+        <td>
+          <%= link_to article.title, post_p1_post_path(article) %>
+          <% if article.p1_comments.size == 0 || article.p1_comments.size == nil %>
+          <% else %>
+            <font size="1">(<%= article.p1_comments.size %>)</font>
+          <% end %> 
+        </td>
+        <td><%= article.author %></td>
+        <td><%= article.created_at.strftime('%b %d, %Y') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>__
