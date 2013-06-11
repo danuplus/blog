@@ -14,6 +14,7 @@ class Post::P1PostsController < ApplicationController
   # GET /post/p1_posts/1.json
   def show
     @post_p1_post = Post::P1Post.find(params[:id])
+    @post_p1_posts = Post::P1Post.all
 
     respond_to do |format|
       format.html # show.html.erb

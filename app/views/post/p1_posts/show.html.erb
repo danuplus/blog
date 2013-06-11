@@ -24,11 +24,12 @@
               :class => 'btn btn-danger' %>
 </div>
 
+<h3>Comments</h3>
 <h5><%= pluralize(@post_p1_post.p1_comments.size, "comment") %></h5>
 <div id="comments">
-  <%= render @@post_p1_post.p1_comments %>
-  <%= render "a1_comments/form" %>
+  <%= render @post_p1_post.p1_comments %>
 </div>
+  <%= render "post/p1_comments/form" %>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -49,9 +50,9 @@
             <font size="1">(<%= article.p1_comments.size %>)</font>
           <% end %> 
         </td>
-        <td><%= article.author %></td>
+        <td><%= article.name %></td>
         <td><%= article.created_at.strftime('%b %d, %Y') %></td>
       </tr>
     <% end %>
   </tbody>
-</table>__
+</table>
