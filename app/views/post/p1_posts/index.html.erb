@@ -8,7 +8,7 @@
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:title) %></th>
       <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:content) %></th>
+      <!-- <th><%#= model_class.human_attribute_name(:content) %></th> -->
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -18,7 +18,7 @@
       <tr>
         <td><%= p1_post.id %></td>
         <td><%= link_to p1_post.title, post_p1_post_path(p1_post) %></td>
-        <td><%= p1_post.content %></td>
+        <td><%= p1_post.name %></td>
         <td><%=l p1_post.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
