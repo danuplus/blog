@@ -1,9 +1,10 @@
-<%= form_for([@post_p1_post, @post_p1_post.p1_comments.build]) do |f| %>
+
+<%= form_for( [@post_p1_post, @post_p1_post.p1_comments.build], :url => post_p1_post_p1_comments_path(@post_p1_post), :remote => true ) do |f| %>
   <div class="field">
     <%= f.label :commenter, "작성자 : " %>
     <%= f.text_field :commenter %>
     <%= f.label :body, "댓글 : " %>
-    <%= f.text_area :body, :rows => 7, :cols => 70 %>
+    <%= f.text_area :body, :rows => 5, :cols => 100 %>
   </div>
   <div class="action"><%= f.submit "작성", :class => "btn" %></div>
 <% end %>

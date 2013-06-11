@@ -1,6 +1,7 @@
-<div class="comment">
+<div class="comment" id="comment_<%= p1_comment.id %>">
   <strong><%= p1_comment.commenter %></strong>
   <em>on <%= p1_comment.created_at.strftime('%Y-%m-%d') %></em>
   <%= simple_format p1_comment.body %>
-  <%= link_to "삭제", [p1_comment.p1_post, p1_comment], :confirm => 'Are you sure?', :method => :delete %>
+  <%= link_to "삭제", post_p1_post_p1_comment_path(p1_comment.p1_post, p1_comment), :confirm => 'Are you sure?', :method => :delete, :remote => true %>
+<hr>
 </div>

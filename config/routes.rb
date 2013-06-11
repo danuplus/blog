@@ -5,6 +5,9 @@ Blog::Application.routes.draw do
 		end
   end
 
+  post "/post/p1_posts/:p1_post_id/p1_comments" => "post/p1_posts#create", as: "post_p1_post_p1_comments"
+  delete "/post/p1_posts/:p1_post_id/p1_comments/:id" => "post/p1_commentss#destroy", as: "post_p1_post_p1_comment"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
